@@ -2,6 +2,7 @@ import React from 'react';
 import d3 from 'd3';
 import AxisPath from './axisPath.jsx';
 import AxisTicks from './axisTicks.jsx';
+import AxisLabel from './axisLabel.jsx';
 
 class YAxis extends React.Component {
   constructor(props) {
@@ -30,6 +31,15 @@ class YAxis extends React.Component {
           scale={this.props.scale}
           orient={this.props.yOrient}
         />
+        <AxisLabel
+          transform={this.props.transform}
+          className={this.props.yLabelClassName}
+          offset={this.props.offset}
+          scale={this.props.scale}
+          orient={this.props.yOrient}
+          height={this.props.height}
+          width={this.props.width}
+        />
       </g>
     );
   }
@@ -42,7 +52,10 @@ YAxis.defaultProps = {
   yAxisClassName: 'd3fault-y-axis',
   opacity: 1,
   fill: 'none',
-  tickArguments: [10]
+  tickArguments: [10],
+  transform: 'rotate(-90)',
+  yLabelClassName: 'd3fault-y-label',
+  offset: 12
 }
 
 export default YAxis;

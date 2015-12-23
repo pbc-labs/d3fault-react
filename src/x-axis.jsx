@@ -2,6 +2,7 @@ import React from 'react';
 import d3 from 'd3';
 import AxisPath from './axisPath.jsx';
 import AxisTicks from './axisTicks.jsx';
+import AxisLabel from './axisLabel.jsx';
 
 class XAxis extends React.Component {
   constructor(props) {
@@ -33,6 +34,15 @@ class XAxis extends React.Component {
           scale={this.props.scale}
           orient={this.props.xOrient}
         />
+      <AxisLabel
+        transform={this.props.transform}
+        className={this.props.xLabelClassName}
+        offset={this.props.offset}
+        scale={this.props.scale}
+        orient={this.props.xOrient}
+        height={this.props.height}
+        width={this.props.width}
+      />
       </g>
     );
   }
@@ -44,7 +54,11 @@ XAxis.defaultProps = {
   xAxisClassName: 'd3fault-x-axis',
   opacity: 1,
   fill: 'none',
-  tickArguments: [10]
+  tickArguments: [10],
+  transform: 'rotate(0)',
+  xLabelClassName: 'd3fault-x-label',
+  offset: 12
+
 }
 
 export default XAxis;
