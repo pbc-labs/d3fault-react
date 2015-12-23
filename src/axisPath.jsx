@@ -40,14 +40,18 @@ class AxisPath extends React.Component {
   }
 };
 
+
+AxisPath.propTypes = {
+  fill: React.PropTypes.string.isRequired,
+  tickArguments: React.PropTypes.array.isRequired,
+  tickValues: React.PropTypes.array,
+  stroke: React.PropTypes.string.isRequired
+}
+
 AxisPath.defaultProps = {
-  innerTickSize: 6,
-  outerTickSize: 6,
-  tickPadding: 4,
   fill: 'none',
   tickArguments: [10],
   tickValues: null,
-  tickFormat: null,
   stroke: 'rgb(0, 0, 0)'
 }
 

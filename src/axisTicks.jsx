@@ -9,6 +9,7 @@ class AxisTicks extends React.Component {
 
   render() {
     const props = this.props;
+
     const sign = this.props.orient === "top" || this.props.orient === "left" ? -1 : 1;
 
     const tickSpacing = Math.max(this.props.innerTickSize, 0) + this.props.tickPadding;
@@ -68,10 +69,14 @@ class AxisTicks extends React.Component {
   }
 };
 
+
+AxisTicks.propTypes = {
+  tickStroke: React.PropTypes.string.isRequired,
+  tickArguments: React.PropTypes.array.isRequired,
+  tickValues: React.PropTypes.array
+}
+
 AxisTicks.defaultProps = {
-  innerTickSize: 6,
-  outerTickSize: 6,
-  tickPadding: 4,
   tickStroke: 'rgb(0, 0, 0)',
   tickArguments: [10],
   tickValues: null

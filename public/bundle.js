@@ -24006,11 +24006,15 @@
 
 	var _barChart2 = _interopRequireDefault(_barChart);
 
+	var _main = __webpack_require__(217);
+
+	var _main2 = _interopRequireDefault(_main);
+
 	var _reactRouter = __webpack_require__(159);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = _react2.default.createElement(_reactRouter.Route, { path: '/', component: _barChart2.default });
+	exports.default = _react2.default.createElement(_reactRouter.Route, { path: '/', component: _main2.default });
 
 /***/ },
 /* 207 */
@@ -24044,7 +24048,7 @@
 
 	var _xAxis2 = _interopRequireDefault(_xAxis);
 
-	var _yAxis = __webpack_require__(215);
+	var _yAxis = __webpack_require__(216);
 
 	var _yAxis2 = _interopRequireDefault(_yAxis);
 
@@ -24098,11 +24102,13 @@
 	        _react2.default.createElement(
 	          _chart2.default,
 	          {
-	            colors: this.props.colors,
 	            width: this.props.width,
 	            height: this.props.height,
 	            title: this.props.title,
-	            margins: this.props.margins
+	            margins: this.props.margins,
+	            fontSize: this.props.fontSize,
+	            fontStyle: this.props.fontStyle,
+	            titleFontSize: this.props.titleFontSize
 	          },
 	          _react2.default.createElement(
 	            'g',
@@ -24111,13 +24117,21 @@
 	              height: this.props.height,
 	              width: this.props.width,
 	              scale: xScale,
-	              scaleType: this.props.xscaleType
+	              scaleType: this.props.xscaleType,
+	              innerTickSize: this.props.innerTickSize,
+	              outerTickSize: this.props.outerTickSize,
+	              tickPadding: this.props.tickPadding,
+	              xAxisLabel: this.props.xAxisLabel
 	            }),
 	            _react2.default.createElement(_yAxis2.default, {
 	              height: this.props.height,
 	              width: this.props.width,
 	              scale: yScale,
-	              scaleType: this.props.yscaleType
+	              scaleType: this.props.yscaleType,
+	              innerTickSize: this.props.innerTickSize,
+	              outerTickSize: this.props.outerTickSize,
+	              tickPadding: this.props.tickPadding,
+	              yAxisLabel: this.props.yAxisLabel
 	            }),
 	            _react2.default.createElement(_data2.default, {
 	              xScale: xScale,
@@ -24125,7 +24139,8 @@
 	              data: this.props.data,
 	              margins: this.props.margins,
 	              height: this.props.height,
-	              width: this.props.width
+	              width: this.props.width,
+	              colors: this.props.colors
 	            })
 	          )
 	        )
@@ -24138,16 +24153,44 @@
 
 	;
 
+	BarChart.propTypes = {
+	  width: _react2.default.PropTypes.number.isRequired,
+	  height: _react2.default.PropTypes.number.isRequired,
+	  title: _react2.default.PropTypes.string.isRequired,
+	  margins: _react2.default.PropTypes.object.isRequired,
+	  colors: _react2.default.PropTypes.array.isRequired,
+	  fontSize: _react2.default.PropTypes.number.isRequired,
+	  titleFontSize: _react2.default.PropTypes.number.isRequired,
+	  xAxisLabel: _react2.default.PropTypes.string.isRequired,
+	  yAxisLabel: _react2.default.PropTypes.string.isRequired,
+	  chartClassName: _react2.default.PropTypes.string.isRequired,
+	  titleTextAlign: _react2.default.PropTypes.string.isRequired,
+	  xscaleType: _react2.default.PropTypes.string.isRequired,
+	  yscaleType: _react2.default.PropTypes.string.isRequired,
+	  innerTickSize: _react2.default.PropTypes.number.isRequired,
+	  outerTickSize: _react2.default.PropTypes.number.isRequired,
+	  tickPadding: _react2.default.PropTypes.number.isRequired,
+	  data: _react2.default.PropTypes.array.isRequired
+	};
+
 	BarChart.defaultProps = {
 	  width: 600,
 	  height: 300,
 	  title: 'Default Title, YO!',
 	  margins: { top: 30, right: 30, bottom: 30, left: 50 },
 	  colors: ['steelblue', 'red', 'green'],
+	  fontSize: 14,
+	  titleFontSize: 18,
+	  fontStyle: 'Arial',
+	  xAxisLabel: 'Default X',
+	  yAxisLabel: 'Default Y',
 	  chartClassName: 'bar-chart-class',
 	  titleTextAlign: 'center',
 	  xscaleType: 'X',
 	  yscaleType: 'Y',
+	  innerTickSize: 6,
+	  outerTickSize: 6,
+	  tickPadding: 4,
 	  data: [{ 'letterTest': 'A', 'frequencyTest': 0.08167 }, { 'letterTest': 'B', 'frequencyTest': 0.01492 }, { 'letterTest': 'C', 'frequencyTest': 0.02782 }, { 'letterTest': 'D', 'frequencyTest': 0.04253 }, { 'letterTest': 'E', 'frequencyTest': 0.12702 }, { 'letterTest': 'F', 'frequencyTest': 0.02288 }, { 'letterTest': 'G', 'frequencyTest': 0.02015 }, { 'letterTest': 'H', 'frequencyTest': 0.06094 }, { 'letterTest': 'I', 'frequencyTest': 0.06966 }, { 'letterTest': 'J', 'frequencyTest': 0.00153 }, { 'letterTest': 'K', 'frequencyTest': 0.00772 }, { 'letterTest': 'L', 'frequencyTest': 0.04025 }, { 'letterTest': 'M', 'frequencyTest': 0.02406 }, { 'letterTest': 'N', 'frequencyTest': 0.06749 }, { 'letterTest': 'O', 'frequencyTest': 0.07507 }, { 'letterTest': 'P', 'frequencyTest': 0.01929 }, { 'letterTest': 'Q', 'frequencyTest': 0.00095 }, { 'letterTest': 'R', 'frequencyTest': 0.05987 }, { 'letterTest': 'S', 'frequencyTest': 0.06327 }, { 'letterTest': 'T', 'frequencyTest': 0.09056 }, { 'letterTest': 'U', 'frequencyTest': 0.02758 }, { 'letterTest': 'V', 'frequencyTest': 0.00978 }, { 'letterTest': 'W', 'frequencyTest': 0.0236 }, { 'letterTest': 'X', 'frequencyTest': 0.0015 }, { 'letterTest': 'Y', 'frequencyTest': 0.01974 }, { 'letterTest': 'Z', 'frequencyTest': 0.00074 }]
 	};
 
@@ -33743,23 +33786,10 @@
 	  }
 
 	  _createClass(Chart, [{
-	    key: 'renderTitle',
-	    value: function renderTitle() {
-	      return _react2.default.createElement(
-	        'text',
-	        {
-	          className: this.props.titleClassName,
-	          x: '300',
-	          y: '20'
-	        },
-	        this.props.title
-	      );
-	    }
-	  }, {
 	    key: 'renderChart',
 	    value: function renderChart() {
-
 	      var widthAdj = this.props.width + this.props.margins.left + this.props.margins.right;
+	      var titleXPosition = widthAdj * 0.5;
 
 	      var heightAdj = this.props.height + this.props.margins.top + this.props.margins.bottom;
 
@@ -33773,16 +33803,21 @@
 	          fontFamily: this.props.fontStyle
 	        },
 	        this.props.children,
-	        this.renderTitle()
+	        _react2.default.createElement(
+	          'text',
+	          {
+	            className: this.props.titleClassName,
+	            x: titleXPosition,
+	            y: '20',
+	            fontSize: this.props.titleFontSize
+	          },
+	          this.props.title
+	        )
 	      );
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var widthAdj = this.props.width + this.props.margins.left + this.props.margins.right;
-
-	      var heightAdj = this.props.height + this.props.margins.top + this.props.margins.bottom;
-
 	      return _react2.default.createElement(
 	        'div',
 	        {
@@ -33798,12 +33833,16 @@
 
 	;
 
+	Chart.propTypes = {
+	  mainClassName: _react2.default.PropTypes.string.isRequired,
+	  titleClassName: _react2.default.PropTypes.string.isRequired,
+	  svgClassName: _react2.default.PropTypes.string.isRequired
+	};
+
 	Chart.defaultProps = {
 	  mainClassName: 'd3fault-chart',
 	  titleClassName: 'd3fault-title',
-	  svgClassName: 'd3fault-title',
-	  fontSize: 14,
-	  fontStyle: 'Arial'
+	  svgClassName: 'd3fault-title'
 
 	};
 
@@ -33881,7 +33920,8 @@
 	        height: height - yScale(d.frequencyTest),
 	        width: xScale.rangeBand(),
 	        x: xVals,
-	        y: yScale(d.frequencyTest)
+	        y: yScale(d.frequencyTest),
+	        colors: this.props.colors
 	      });
 	    }
 	  }]);
@@ -33897,7 +33937,7 @@
 /* 211 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -33928,11 +33968,11 @@
 	  }
 
 	  _createClass(Rect, [{
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
-	      return _react2.default.createElement('rect', {
+	      return _react2.default.createElement("rect", {
 	        className: this.props.rectClassName,
-	        fill: this.props.fill,
+	        fill: this.props.colors[0],
 	        height: this.props.height,
 	        width: this.props.width,
 	        x: this.props.x,
@@ -33946,13 +33986,13 @@
 
 	;
 
-	Rect.defaultProps = {
-	  fill: 'steelblue',
-	  rectClassName: "d3fault-bar-rect"
+	Rect.propTypes = {
+	  rectClassName: _react2.default.PropTypes.string.isRequired
+
 	};
 
-	Rect.propTypes = {
-	  fill: _react2.default.PropTypes.string
+	Rect.defaultProps = {
+	  rectClassName: "d3fault-bar-rect"
 	};
 
 	exports.default = Rect;
@@ -33985,7 +34025,7 @@
 
 	var _axisTicks2 = _interopRequireDefault(_axisTicks);
 
-	var _axisLabel = __webpack_require__(216);
+	var _axisLabel = __webpack_require__(215);
 
 	var _axisLabel2 = _interopRequireDefault(_axisLabel);
 
@@ -34025,11 +34065,17 @@
 	          opacity: this.props.opacity,
 	          fill: this.props.fill,
 	          tickArguments: this.props.tickArguments,
-	          scaleType: this.props.scaleType
+	          scaleType: this.props.scaleType,
+	          innerTickSize: this.props.innerTickSize,
+	          outerTickSize: this.props.outerTickSize,
+	          tickPadding: this.props.tickPadding
 	        }),
 	        _react2.default.createElement(_axisPath2.default, {
 	          scale: this.props.scale,
-	          orient: this.props.xOrient
+	          orient: this.props.xOrient,
+	          innerTickSize: this.props.innerTickSize,
+	          outerTickSize: this.props.outerTickSize,
+	          tickPadding: this.props.tickPadding
 	        }),
 	        _react2.default.createElement(_axisLabel2.default, {
 	          transform: this.props.transform,
@@ -34038,7 +34084,8 @@
 	          scale: this.props.scale,
 	          orient: this.props.xOrient,
 	          height: this.props.height,
-	          width: this.props.width
+	          width: this.props.width,
+	          axisLabel: this.props.xAxisLabel
 	        })
 	      );
 	    }
@@ -34048,6 +34095,18 @@
 	})(_react2.default.Component);
 
 	;
+
+	XAxis.propTypes = {
+	  xOrient: _react2.default.PropTypes.string.isRequired,
+	  xAxisOffset: _react2.default.PropTypes.number.isRequired,
+	  xAxisClassName: _react2.default.PropTypes.string.isRequired,
+	  opacity: _react2.default.PropTypes.number.isRequired,
+	  fill: _react2.default.PropTypes.string,
+	  tickArguments: _react2.default.PropTypes.array.isRequired,
+	  transform: _react2.default.PropTypes.string.isRequired,
+	  xLabelClassName: _react2.default.PropTypes.string.isRequired,
+	  offset: _react2.default.PropTypes.number.isRequired
+	};
 
 	XAxis.defaultProps = {
 	  xOrient: 'bottom',
@@ -34138,14 +34197,17 @@
 
 	;
 
+	AxisPath.propTypes = {
+	  fill: _react2.default.PropTypes.string.isRequired,
+	  tickArguments: _react2.default.PropTypes.array.isRequired,
+	  tickValues: _react2.default.PropTypes.array,
+	  stroke: _react2.default.PropTypes.string.isRequired
+	};
+
 	AxisPath.defaultProps = {
-	  innerTickSize: 6,
-	  outerTickSize: 6,
-	  tickPadding: 4,
 	  fill: 'none',
 	  tickArguments: [10],
 	  tickValues: null,
-	  tickFormat: null,
 	  stroke: 'rgb(0, 0, 0)'
 	};
 
@@ -34195,6 +34257,7 @@
 	      var _this2 = this;
 
 	      var props = this.props;
+
 	      var sign = this.props.orient === "top" || this.props.orient === "left" ? -1 : 1;
 
 	      var tickSpacing = Math.max(this.props.innerTickSize, 0) + this.props.tickPadding;
@@ -34271,10 +34334,13 @@
 
 	;
 
+	AxisTicks.propTypes = {
+	  tickStroke: _react2.default.PropTypes.string.isRequired,
+	  tickArguments: _react2.default.PropTypes.array.isRequired,
+	  tickValues: _react2.default.PropTypes.array
+	};
+
 	AxisTicks.defaultProps = {
-	  innerTickSize: 6,
-	  outerTickSize: 6,
-	  tickPadding: 4,
 	  tickStroke: 'rgb(0, 0, 0)',
 	  tickArguments: [10],
 	  tickValues: null
@@ -34313,112 +34379,6 @@
 
 /***/ },
 /* 215 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _d = __webpack_require__(208);
-
-	var _d2 = _interopRequireDefault(_d);
-
-	var _axisPath = __webpack_require__(213);
-
-	var _axisPath2 = _interopRequireDefault(_axisPath);
-
-	var _axisTicks = __webpack_require__(214);
-
-	var _axisTicks2 = _interopRequireDefault(_axisTicks);
-
-	var _axisLabel = __webpack_require__(216);
-
-	var _axisLabel2 = _interopRequireDefault(_axisLabel);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var YAxis = (function (_React$Component) {
-	  _inherits(YAxis, _React$Component);
-
-	  function YAxis(props) {
-	    _classCallCheck(this, YAxis);
-
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(YAxis).call(this, props));
-	    // Operations usually carried out in componentWillMount go here
-	  }
-
-	  _createClass(YAxis, [{
-	    key: 'render',
-	    value: function render() {
-	      var trans = 'translate(' + this.props.yAxisOffset + ', 0)';
-	      return _react2.default.createElement(
-	        'g',
-	        {
-	          className: this.props.xAxisClassName,
-	          transform: trans
-	        },
-	        _react2.default.createElement(_axisTicks2.default, {
-	          scale: this.props.scale,
-	          orient: this.props.yOrient,
-	          height: this.props.height,
-	          opacity: this.props.opacity,
-	          fill: this.props.fill,
-	          tickArguments: this.props.tickArguments,
-	          scaleType: this.props.scaleType
-	        }),
-	        _react2.default.createElement(_axisPath2.default, {
-	          scale: this.props.scale,
-	          orient: this.props.yOrient
-	        }),
-	        _react2.default.createElement(_axisLabel2.default, {
-	          transform: this.props.transform,
-	          className: this.props.yLabelClassName,
-	          offset: this.props.offset,
-	          scale: this.props.scale,
-	          orient: this.props.yOrient,
-	          height: this.props.height,
-	          width: this.props.width
-	        })
-	      );
-	    }
-	  }]);
-
-	  return YAxis;
-	})(_react2.default.Component);
-
-	;
-
-	YAxis.defaultProps = {
-	  yOrient: 'right',
-	  stroke: 'rgb(0, 0, 0)',
-	  yAxisOffset: 0,
-	  yAxisClassName: 'd3fault-y-axis',
-	  opacity: 1,
-	  fill: 'none',
-	  tickArguments: [10],
-	  transform: 'rotate(-90)',
-	  yLabelClassName: 'd3fault-y-label',
-	  offset: 12
-	};
-
-	exports.default = YAxis;
-
-/***/ },
-/* 216 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34475,7 +34435,7 @@
 	          x: x,
 	          transform: trans
 	        },
-	        'tempLabel'
+	        this.props.axisLabel
 	      );
 	    }
 	  }]);
@@ -34485,6 +34445,12 @@
 
 	;
 
+	AxisLabel.propTypes = {
+	  offset: _react2.default.PropTypes.number.isRequired,
+	  textAnchor: _react2.default.PropTypes.string.isRequired,
+	  axisLabel: _react2.default.PropTypes.string.isRequired
+	};
+
 	AxisLabel.defaultProps = {
 	  offset: 20,
 	  textAnchor: 'end'
@@ -34493,6 +34459,169 @@
 	exports.default = AxisLabel;
 	// THINGS TO FIGURE OUT
 	// label
+
+/***/ },
+/* 216 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _d = __webpack_require__(208);
+
+	var _d2 = _interopRequireDefault(_d);
+
+	var _axisPath = __webpack_require__(213);
+
+	var _axisPath2 = _interopRequireDefault(_axisPath);
+
+	var _axisTicks = __webpack_require__(214);
+
+	var _axisTicks2 = _interopRequireDefault(_axisTicks);
+
+	var _axisLabel = __webpack_require__(215);
+
+	var _axisLabel2 = _interopRequireDefault(_axisLabel);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var YAxis = (function (_React$Component) {
+	  _inherits(YAxis, _React$Component);
+
+	  function YAxis(props) {
+	    _classCallCheck(this, YAxis);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(YAxis).call(this, props));
+	    // Operations usually carried out in componentWillMount go here
+	  }
+
+	  _createClass(YAxis, [{
+	    key: 'render',
+	    value: function render() {
+
+	      var trans = 'translate(' + this.props.yAxisOffset + ', 0)';
+	      return _react2.default.createElement(
+	        'g',
+	        {
+	          className: this.props.xAxisClassName,
+	          transform: trans
+	        },
+	        _react2.default.createElement(_axisTicks2.default, {
+	          scale: this.props.scale,
+	          orient: this.props.yOrient,
+	          height: this.props.height,
+	          opacity: this.props.opacity,
+	          fill: this.props.fill,
+	          tickArguments: this.props.tickArguments,
+	          scaleType: this.props.scaleType,
+	          innerTickSize: this.props.innerTickSize,
+	          outerTickSize: this.props.outerTickSize,
+	          tickPadding: this.props.tickPadding
+	        }),
+	        _react2.default.createElement(_axisPath2.default, {
+	          scale: this.props.scale,
+	          orient: this.props.yOrient,
+	          innerTickSize: this.props.innerTickSize,
+	          outerTickSize: this.props.outerTickSize,
+	          tickPadding: this.props.tickPadding
+	        }),
+	        _react2.default.createElement(_axisLabel2.default, {
+	          transform: this.props.transform,
+	          className: this.props.yLabelClassName,
+	          offset: this.props.offset,
+	          scale: this.props.scale,
+	          orient: this.props.yOrient,
+	          height: this.props.height,
+	          width: this.props.width,
+	          axisLabel: this.props.yAxisLabel
+	        })
+	      );
+	    }
+	  }]);
+
+	  return YAxis;
+	})(_react2.default.Component);
+
+	;
+
+	YAxis.propTypes = {
+	  yOrient: _react2.default.PropTypes.string.isRequired,
+	  yAxisOffset: _react2.default.PropTypes.number.isRequired,
+	  yAxisClassName: _react2.default.PropTypes.string.isRequired,
+	  opacity: _react2.default.PropTypes.number.isRequired,
+	  fill: _react2.default.PropTypes.string,
+	  tickArguments: _react2.default.PropTypes.array.isRequired,
+	  transform: _react2.default.PropTypes.string.isRequired,
+	  yLabelClassName: _react2.default.PropTypes.string.isRequired,
+	  offset: _react2.default.PropTypes.number.isRequired
+	};
+
+	YAxis.defaultProps = {
+	  yOrient: 'right',
+	  yAxisOffset: 0,
+	  yAxisClassName: 'd3fault-y-axis',
+	  opacity: 1,
+	  fill: 'none',
+	  tickArguments: [10],
+	  transform: 'rotate(-90)',
+	  yLabelClassName: 'd3fault-y-label',
+	  offset: 12
+	};
+
+	exports.default = YAxis;
+
+/***/ },
+/* 217 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _barChart = __webpack_require__(207);
+
+	var _barChart2 = _interopRequireDefault(_barChart);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Main = function Main() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'container' },
+	    _react2.default.createElement(_barChart2.default, {
+	      width: 600,
+	      height: 300,
+	      title: 'My new title',
+	      fontSize: 12,
+	      fontStyle: 'Comic Sans MS',
+	      yAxisLabel: 'New Y',
+	      colors: ['red']
+	    })
+	  );
+	};
+
+	exports.default = Main;
 
 /***/ }
 /******/ ]);

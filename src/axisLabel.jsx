@@ -27,11 +27,18 @@ class AxisLabel extends React.Component {
         x={x}
         transform={trans}
       >
-        tempLabel
+        {this.props.axisLabel}
       </text>
     );
   }
 };
+
+
+AxisLabel.propTypes = {
+  offset: React.PropTypes.number.isRequired,
+  textAnchor: React.PropTypes.string.isRequired,
+  axisLabel: React.PropTypes.string.isRequired
+}
 
 AxisLabel.defaultProps = {
   offset: 20,

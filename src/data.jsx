@@ -30,6 +30,7 @@ class Data extends React.Component {
         width={xScale.rangeBand()}
         x={xVals}
         y={yScale(d.frequencyTest)}
+        colors={this.props.colors}
       />
     )
   }

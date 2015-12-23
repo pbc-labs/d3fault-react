@@ -6,21 +6,9 @@ class Chart extends React.Component {
     // Operations usually carried out in componentWillMount go here
   }
 
-  renderTitle() {
-    return (
-      <text
-        className={this.props.titleClassName}
-        x='300'
-        y='20'
-      >
-        {this.props.title}
-      </text>
-    );
-  }
-
   renderChart() {
-
     const widthAdj = this.props.width + this.props.margins.left + this.props.margins.right;
+    const titleXPosition = widthAdj * 0.5;
 
     const heightAdj = this.props.height + this.props.margins.top + this.props.margins.bottom;
 
@@ -33,16 +21,19 @@ class Chart extends React.Component {
         fontFamily={this.props.fontStyle}
       >
       {this.props.children}
-      {this.renderTitle()}
+        <text
+          className={this.props.titleClassName}
+          x={titleXPosition}
+          y='20'
+          fontSize={this.props.titleFontSize}
+        >
+          {this.props.title}
+        </text>
       </svg>
     );
   }
 
   render() {
-    const widthAdj = this.props.width + this.props.margins.left + this.props.margins.right;
-
-    const heightAdj = this.props.height + this.props.margins.top + this.props.margins.bottom;
-
     return (
       <div
         className={this.props.mainClassName}
@@ -53,12 +44,16 @@ class Chart extends React.Component {
   }
 };
 
+Chart.propTypes = {
+  mainClassName: React.PropTypes.string.isRequired,
+  titleClassName: React.PropTypes.string.isRequired,
+  svgClassName: React.PropTypes.string.isRequired
+}
+
 Chart.defaultProps = {
     mainClassName: 'd3fault-chart',
     titleClassName: 'd3fault-title',
-    svgClassName: 'd3fault-title',
-    fontSize: 14,
-    fontStyle: 'Arial'
+    svgClassName: 'd3fault-title'
 
 }
 

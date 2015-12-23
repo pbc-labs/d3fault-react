@@ -12,6 +12,7 @@ class YAxis extends React.Component {
 
 
   render() {
+
     const trans = `translate(${this.props.yAxisOffset}, 0)`;
     return (
       <g
@@ -26,10 +27,16 @@ class YAxis extends React.Component {
           fill={this.props.fill}
           tickArguments={this.props.tickArguments}
           scaleType={this.props.scaleType}
+          innerTickSize={this.props.innerTickSize}
+          outerTickSize={this.props.outerTickSize}
+          tickPadding={this.props.tickPadding}
         />
         <AxisPath
           scale={this.props.scale}
           orient={this.props.yOrient}
+          innerTickSize={this.props.innerTickSize}
+          outerTickSize={this.props.outerTickSize}
+          tickPadding={this.props.tickPadding}
         />
         <AxisLabel
           transform={this.props.transform}
@@ -39,15 +46,27 @@ class YAxis extends React.Component {
           orient={this.props.yOrient}
           height={this.props.height}
           width={this.props.width}
+          axisLabel={this.props.yAxisLabel}
         />
       </g>
     );
   }
 };
 
+YAxis.propTypes = {
+  yOrient: React.PropTypes.string.isRequired,
+  yAxisOffset: React.PropTypes.number.isRequired,
+  yAxisClassName: React.PropTypes.string.isRequired,
+  opacity: React.PropTypes.number.isRequired,
+  fill: React.PropTypes.string,
+  tickArguments: React.PropTypes.array.isRequired,
+  transform: React.PropTypes.string.isRequired,
+  yLabelClassName: React.PropTypes.string.isRequired,
+  offset: React.PropTypes.number.isRequired
+};
+
 YAxis.defaultProps = {
   yOrient: 'right',
-  stroke: 'rgb(0, 0, 0)',
   yAxisOffset: 0,
   yAxisClassName: 'd3fault-y-axis',
   opacity: 1,

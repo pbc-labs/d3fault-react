@@ -10,7 +10,7 @@ class Rect extends React.Component {
     return (
       <rect
         className={this.props.rectClassName}
-        fill={this.props.fill}
+        fill={this.props.colors[0]}
         height={this.props.height}
         width={this.props.width}
         x={this.props.x}
@@ -20,13 +20,13 @@ class Rect extends React.Component {
   }
 };
 
-Rect.defaultProps = {
-  fill: 'steelblue',
-  rectClassName: "d3fault-bar-rect"
+Rect.propTypes = {
+  rectClassName: React.PropTypes.string.isRequired
+
 };
 
-Rect.propTypes = {
-  fill: React.PropTypes.string
+Rect.defaultProps = {
+  rectClassName: "d3fault-bar-rect"
 };
 
 export default Rect;

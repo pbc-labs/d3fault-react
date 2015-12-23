@@ -40,11 +40,13 @@ class BarChart extends React.Component {
     return (
       <div>
         <Chart
-          colors={this.props.colors}
           width={this.props.width}
           height={this.props.height}
           title={this.props.title}
           margins={this.props.margins}
+          fontSize={this.props.fontSize}
+          fontStyle={this.props.fontStyle}
+          titleFontSize={this.props.titleFontSize}
         >
           <g transform="translate(50, 30)" className={this.props.chartClassName}>
             <XAxis
@@ -52,12 +54,20 @@ class BarChart extends React.Component {
               width={this.props.width}
               scale={xScale}
               scaleType={this.props.xscaleType}
+              innerTickSize={this.props.innerTickSize}
+              outerTickSize={this.props.outerTickSize}
+              tickPadding={this.props.tickPadding}
+              xAxisLabel={this.props.xAxisLabel}
             />
             <YAxis
               height={this.props.height}
               width={this.props.width}
               scale={yScale}
               scaleType={this.props.yscaleType}
+              innerTickSize={this.props.innerTickSize}
+              outerTickSize={this.props.outerTickSize}
+              tickPadding={this.props.tickPadding}
+              yAxisLabel={this.props.yAxisLabel}
             />
             <Data
               xScale={xScale}
@@ -66,6 +76,7 @@ class BarChart extends React.Component {
               margins={this.props.margins}
               height={this.props.height}
               width={this.props.width}
+              colors={this.props.colors}
             />
            </g>
         </Chart>
@@ -74,16 +85,44 @@ class BarChart extends React.Component {
   }
 };
 
+BarChart.propTypes = {
+  width: React.PropTypes.number.isRequired,
+  height: React.PropTypes.number.isRequired,
+  title: React.PropTypes.string.isRequired,
+  margins: React.PropTypes.object.isRequired,
+  colors: React.PropTypes.array.isRequired,
+  fontSize: React.PropTypes.number.isRequired,
+  titleFontSize: React.PropTypes.number.isRequired,
+  xAxisLabel: React.PropTypes.string.isRequired,
+  yAxisLabel: React.PropTypes.string.isRequired,
+  chartClassName: React.PropTypes.string.isRequired,
+  titleTextAlign: React.PropTypes.string.isRequired,
+  xscaleType: React.PropTypes.string.isRequired,
+  yscaleType: React.PropTypes.string.isRequired,
+  innerTickSize: React.PropTypes.number.isRequired,
+  outerTickSize: React.PropTypes.number.isRequired,
+  tickPadding: React.PropTypes.number.isRequired,
+  data: React.PropTypes.array.isRequired
+}
+
 BarChart.defaultProps = {
   width: 600,
   height: 300,
   title: 'Default Title, YO!',
   margins: { top: 30, right: 30, bottom: 30, left: 50 },
   colors: ['steelblue', 'red', 'green'],
+  fontSize: 14,
+  titleFontSize: 18,
+  fontStyle: 'Arial',
+  xAxisLabel: 'Default X',
+  yAxisLabel: 'Default Y',
   chartClassName: 'bar-chart-class',
   titleTextAlign: 'center',
   xscaleType: 'X',
   yscaleType: 'Y',
+  innerTickSize: 6,
+  outerTickSize: 6,
+  tickPadding: 4,
   data: [
     { 'letterTest': 'A', 'frequencyTest': 0.08167 },
     { 'letterTest': 'B', 'frequencyTest': 0.01492 },

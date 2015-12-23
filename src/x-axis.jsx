@@ -29,10 +29,16 @@ class XAxis extends React.Component {
           fill={this.props.fill}
           tickArguments={this.props.tickArguments}
           scaleType={this.props.scaleType}
+          innerTickSize={this.props.innerTickSize}
+          outerTickSize={this.props.outerTickSize}
+          tickPadding={this.props.tickPadding}
         />
         <AxisPath
           scale={this.props.scale}
           orient={this.props.xOrient}
+          innerTickSize={this.props.innerTickSize}
+          outerTickSize={this.props.outerTickSize}
+          tickPadding={this.props.tickPadding}
         />
       <AxisLabel
         transform={this.props.transform}
@@ -42,10 +48,23 @@ class XAxis extends React.Component {
         orient={this.props.xOrient}
         height={this.props.height}
         width={this.props.width}
+        axisLabel={this.props.xAxisLabel}
       />
       </g>
     );
   }
+};
+
+XAxis.propTypes = {
+  xOrient: React.PropTypes.string.isRequired,
+  xAxisOffset: React.PropTypes.number.isRequired,
+  xAxisClassName: React.PropTypes.string.isRequired,
+  opacity: React.PropTypes.number.isRequired,
+  fill: React.PropTypes.string,
+  tickArguments: React.PropTypes.array.isRequired,
+  transform: React.PropTypes.string.isRequired,
+  xLabelClassName: React.PropTypes.string.isRequired,
+  offset: React.PropTypes.number.isRequired
 };
 
 XAxis.defaultProps = {
