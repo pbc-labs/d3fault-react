@@ -4,10 +4,12 @@ import Chart from './chart.jsx';
 import Data from './data.jsx';
 import XAxis from './x-axis.jsx';
 import YAxis from './y-axis.jsx';
+import ChartData from './chartData.js';
 
 class BarChart extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { data: ChartData }
     // Operations usually carried out in componentWillMount go here
   }
 
@@ -16,7 +18,7 @@ class BarChart extends React.Component {
                       .rangeRoundBands([0, this.props.width], 0.1);
     const xArray = [];
 
-    this.props.data.forEach(function (item) {
+    this.state.data.forEach(function (item) {
       xArray.push(item.letterTest);
     });
 
@@ -27,7 +29,7 @@ class BarChart extends React.Component {
 
     const yArray = [];
 
-    this.props.data.forEach(function (item) {
+    this.state.data.forEach(function (item) {
       yArray.push(item.frequencyTest);
     });
 
@@ -72,7 +74,7 @@ class BarChart extends React.Component {
             <Data
               xScale={xScale}
               yScale={yScale}
-              data={this.props.data}
+              data={this.state.data}
               margins={this.props.margins}
               height={this.props.height}
               width={this.props.width}
@@ -101,8 +103,7 @@ BarChart.propTypes = {
   yscaleType: React.PropTypes.string.isRequired,
   innerTickSize: React.PropTypes.number.isRequired,
   outerTickSize: React.PropTypes.number.isRequired,
-  tickPadding: React.PropTypes.number.isRequired,
-  data: React.PropTypes.array.isRequired
+  tickPadding: React.PropTypes.number.isRequired
 }
 
 BarChart.defaultProps = {
@@ -122,35 +123,7 @@ BarChart.defaultProps = {
   yscaleType: 'Y',
   innerTickSize: 6,
   outerTickSize: 6,
-  tickPadding: 4,
-  data: [
-    { 'letterTest': 'A', 'frequencyTest': 0.08167 },
-    { 'letterTest': 'B', 'frequencyTest': 0.01492 },
-    { 'letterTest': 'C', 'frequencyTest': 0.02782 },
-    { 'letterTest': 'D', 'frequencyTest': 0.04253 },
-    { 'letterTest': 'E', 'frequencyTest': 0.12702 },
-    { 'letterTest': 'F', 'frequencyTest': 0.02288 },
-    { 'letterTest': 'G', 'frequencyTest': 0.02015 },
-    { 'letterTest': 'H', 'frequencyTest': 0.06094 },
-    { 'letterTest': 'I', 'frequencyTest': 0.06966 },
-    { 'letterTest': 'J', 'frequencyTest': 0.00153 },
-    { 'letterTest': 'K', 'frequencyTest': 0.00772 },
-    { 'letterTest': 'L', 'frequencyTest': 0.04025 },
-    { 'letterTest': 'M', 'frequencyTest': 0.02406 },
-    { 'letterTest': 'N', 'frequencyTest': 0.06749 },
-    { 'letterTest': 'O', 'frequencyTest': 0.07507 },
-    { 'letterTest': 'P', 'frequencyTest': 0.01929 },
-    { 'letterTest': 'Q', 'frequencyTest': 0.00095 },
-    { 'letterTest': 'R', 'frequencyTest': 0.05987 },
-    { 'letterTest': 'S', 'frequencyTest': 0.06327 },
-    { 'letterTest': 'T', 'frequencyTest': 0.09056 },
-    { 'letterTest': 'U', 'frequencyTest': 0.02758 },
-    { 'letterTest': 'V', 'frequencyTest': 0.00978 },
-    { 'letterTest': 'W', 'frequencyTest': 0.0236 },
-    { 'letterTest': 'X', 'frequencyTest': 0.0015 },
-    { 'letterTest': 'Y', 'frequencyTest': 0.01974 },
-    { 'letterTest': 'Z', 'frequencyTest': 0.00074 },
-    ]
+  tickPadding: 4
 };
 
 export default BarChart;

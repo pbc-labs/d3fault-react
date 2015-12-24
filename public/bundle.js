@@ -24006,7 +24006,7 @@
 
 	var _barChart2 = _interopRequireDefault(_barChart);
 
-	var _main = __webpack_require__(217);
+	var _main = __webpack_require__(218);
 
 	var _main2 = _interopRequireDefault(_main);
 
@@ -24052,6 +24052,10 @@
 
 	var _yAxis2 = _interopRequireDefault(_yAxis);
 
+	var _chartData = __webpack_require__(217);
+
+	var _chartData2 = _interopRequireDefault(_chartData);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24066,8 +24070,11 @@
 	  function BarChart(props) {
 	    _classCallCheck(this, BarChart);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(BarChart).call(this, props));
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BarChart).call(this, props));
+
+	    _this.state = { data: _chartData2.default };
 	    // Operations usually carried out in componentWillMount go here
+	    return _this;
 	  }
 
 	  _createClass(BarChart, [{
@@ -24076,7 +24083,7 @@
 	      var xScale = _d2.default.scale.ordinal().rangeRoundBands([0, this.props.width], 0.1);
 	      var xArray = [];
 
-	      this.props.data.forEach(function (item) {
+	      this.state.data.forEach(function (item) {
 	        xArray.push(item.letterTest);
 	      });
 
@@ -24086,7 +24093,7 @@
 
 	      var yArray = [];
 
-	      this.props.data.forEach(function (item) {
+	      this.state.data.forEach(function (item) {
 	        yArray.push(item.frequencyTest);
 	      });
 
@@ -24136,7 +24143,7 @@
 	            _react2.default.createElement(_data2.default, {
 	              xScale: xScale,
 	              yScale: yScale,
-	              data: this.props.data,
+	              data: this.state.data,
 	              margins: this.props.margins,
 	              height: this.props.height,
 	              width: this.props.width,
@@ -24169,8 +24176,7 @@
 	  yscaleType: _react2.default.PropTypes.string.isRequired,
 	  innerTickSize: _react2.default.PropTypes.number.isRequired,
 	  outerTickSize: _react2.default.PropTypes.number.isRequired,
-	  tickPadding: _react2.default.PropTypes.number.isRequired,
-	  data: _react2.default.PropTypes.array.isRequired
+	  tickPadding: _react2.default.PropTypes.number.isRequired
 	};
 
 	BarChart.defaultProps = {
@@ -24190,8 +24196,7 @@
 	  yscaleType: 'Y',
 	  innerTickSize: 6,
 	  outerTickSize: 6,
-	  tickPadding: 4,
-	  data: [{ 'letterTest': 'A', 'frequencyTest': 0.08167 }, { 'letterTest': 'B', 'frequencyTest': 0.01492 }, { 'letterTest': 'C', 'frequencyTest': 0.02782 }, { 'letterTest': 'D', 'frequencyTest': 0.04253 }, { 'letterTest': 'E', 'frequencyTest': 0.12702 }, { 'letterTest': 'F', 'frequencyTest': 0.02288 }, { 'letterTest': 'G', 'frequencyTest': 0.02015 }, { 'letterTest': 'H', 'frequencyTest': 0.06094 }, { 'letterTest': 'I', 'frequencyTest': 0.06966 }, { 'letterTest': 'J', 'frequencyTest': 0.00153 }, { 'letterTest': 'K', 'frequencyTest': 0.00772 }, { 'letterTest': 'L', 'frequencyTest': 0.04025 }, { 'letterTest': 'M', 'frequencyTest': 0.02406 }, { 'letterTest': 'N', 'frequencyTest': 0.06749 }, { 'letterTest': 'O', 'frequencyTest': 0.07507 }, { 'letterTest': 'P', 'frequencyTest': 0.01929 }, { 'letterTest': 'Q', 'frequencyTest': 0.00095 }, { 'letterTest': 'R', 'frequencyTest': 0.05987 }, { 'letterTest': 'S', 'frequencyTest': 0.06327 }, { 'letterTest': 'T', 'frequencyTest': 0.09056 }, { 'letterTest': 'U', 'frequencyTest': 0.02758 }, { 'letterTest': 'V', 'frequencyTest': 0.00978 }, { 'letterTest': 'W', 'frequencyTest': 0.0236 }, { 'letterTest': 'X', 'frequencyTest': 0.0015 }, { 'letterTest': 'Y', 'frequencyTest': 0.01974 }, { 'letterTest': 'Z', 'frequencyTest': 0.00074 }]
+	  tickPadding: 4
 	};
 
 	exports.default = BarChart;
@@ -34587,6 +34592,19 @@
 
 /***/ },
 /* 217 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var ChartData = [{ 'letterTest': 'A', 'frequencyTest': 0.08167 }, { 'letterTest': 'B', 'frequencyTest': 0.01492 }, { 'letterTest': 'C', 'frequencyTest': 0.02782 }, { 'letterTest': 'D', 'frequencyTest': 0.04253 }, { 'letterTest': 'E', 'frequencyTest': 0.12702 }, { 'letterTest': 'F', 'frequencyTest': 0.02288 }, { 'letterTest': 'G', 'frequencyTest': 0.02015 }, { 'letterTest': 'H', 'frequencyTest': 0.06094 }, { 'letterTest': 'I', 'frequencyTest': 0.06966 }, { 'letterTest': 'J', 'frequencyTest': 0.00153 }, { 'letterTest': 'K', 'frequencyTest': 0.00772 }, { 'letterTest': 'L', 'frequencyTest': 0.04025 }, { 'letterTest': 'M', 'frequencyTest': 0.02406 }, { 'letterTest': 'N', 'frequencyTest': 0.06749 }, { 'letterTest': 'O', 'frequencyTest': 0.07507 }, { 'letterTest': 'P', 'frequencyTest': 0.01929 }, { 'letterTest': 'Q', 'frequencyTest': 0.00095 }, { 'letterTest': 'R', 'frequencyTest': 0.05987 }, { 'letterTest': 'S', 'frequencyTest': 0.06327 }, { 'letterTest': 'T', 'frequencyTest': 0.09056 }, { 'letterTest': 'U', 'frequencyTest': 0.02758 }, { 'letterTest': 'V', 'frequencyTest': 0.00978 }, { 'letterTest': 'W', 'frequencyTest': 0.0236 }, { 'letterTest': 'X', 'frequencyTest': 0.0015 }, { 'letterTest': 'Y', 'frequencyTest': 0.01974 }, { 'letterTest': 'Z', 'frequencyTest': 0.00074 }];
+
+	exports.default = ChartData;
+
+/***/ },
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
