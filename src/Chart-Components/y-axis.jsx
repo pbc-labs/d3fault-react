@@ -74,7 +74,7 @@ YAxis.defaultProps = {
   tickArguments: [10],
   transform: 'rotate(-90)',
   yLabelClassName: 'd3fault-y-label',
-  offset: 12
+  offset: 40
 }
 
 export default YAxis;

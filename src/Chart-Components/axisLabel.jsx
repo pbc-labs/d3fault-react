@@ -10,14 +10,14 @@ class AxisLabel extends React.Component {
     var trans = this.props.transform;
 
     if (this.props.orient === 'top' || this.props.orient === 'bottom') {
-      var x = this.props.width + this.props.offset * 2;
-      var y = -this.props.offset * 0.5;
+      var x = this.props.width * 0.5 + this.props.offset;
+      var y = this.props.offset * 2;
     } else {
-      var x = this.props.offset;
+      var x = - this.props.height * 0.5 + this.props.offset * 0.5;
       if (this.props.orient === 'left') {
         var y = -this.props.offset;
       } else {
-        var y = this.props.offset;
+        var y = -this.props.offset;
       }
     }
     return (

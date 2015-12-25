@@ -5,7 +5,8 @@ import BarChartLeft from'../src/Charts/BarChartLeft/barChartLeft.jsx';
 const Main = () => {
   return (
       <div className="container">
-        <BarChartLeft
+        <BarChart
+          title='new title, yo'
         />
       </div>
   )

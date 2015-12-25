@@ -76,7 +76,7 @@ XAxis.defaultProps = {
   tickArguments: [10],
   transform: 'rotate(0)',
   xLabelClassName: 'd3fault-x-label',
-  offset: 12
+  offset: 18
 
 }
 

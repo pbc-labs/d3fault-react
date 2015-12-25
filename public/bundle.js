@@ -24183,7 +24183,7 @@
 	  width: 600,
 	  height: 300,
 	  title: 'Default Title, YO!',
-	  margins: { top: 30, right: 30, bottom: 30, left: 50 },
+	  margins: { top: 30, right: 30, bottom: 50, left: 30 },
 	  colors: ['steelblue', 'red', 'green'],
 	  fontSize: 14,
 	  titleFontSize: 18,
@@ -34122,7 +34122,7 @@
 	  tickArguments: [10],
 	  transform: 'rotate(0)',
 	  xLabelClassName: 'd3fault-x-label',
-	  offset: 12
+	  offset: 18
 
 	};
 
@@ -34422,14 +34422,14 @@
 	      var trans = this.props.transform;
 
 	      if (this.props.orient === 'top' || this.props.orient === 'bottom') {
-	        var x = this.props.width + this.props.offset * 2;
-	        var y = -this.props.offset * 0.5;
+	        var x = this.props.width * 0.5 + this.props.offset;
+	        var y = this.props.offset * 2;
 	      } else {
-	        var x = this.props.offset;
+	        var x = -this.props.height * 0.5 + this.props.offset * 0.5;
 	        if (this.props.orient === 'left') {
 	          var y = -this.props.offset;
 	        } else {
-	          var y = this.props.offset;
+	          var y = -this.props.offset;
 	        }
 	      }
 	      return _react2.default.createElement(
@@ -34585,7 +34585,7 @@
 	  tickArguments: [10],
 	  transform: 'rotate(-90)',
 	  yLabelClassName: 'd3fault-y-label',
-	  offset: 12
+	  offset: 40
 	};
 
 	exports.default = YAxis;
@@ -34631,7 +34631,9 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'container' },
-	    _react2.default.createElement(_barChartLeft2.default, null)
+	    _react2.default.createElement(_barChart2.default, {
+	      title: 'new title, yo'
+	    })
 	  );
 	};
 
@@ -34804,9 +34806,9 @@
 
 	BarChartLeft.defaultProps = {
 	  width: 600,
-	  height: 300,
+	  height: 400,
 	  title: 'Default Title, YO!',
-	  margins: { top: 30, right: 30, bottom: 30, left: 50 },
+	  margins: { top: 30, right: 30, bottom: 50, left: 55 },
 	  colors: ['steelblue', 'red', 'green'],
 	  fontSize: 14,
 	  titleFontSize: 18,

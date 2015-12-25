@@ -110,7 +110,7 @@ BarChart.defaultProps = {
   width: 600,
   height: 300,
   title: 'Default Title, YO!',
-  margins: { top: 30, right: 30, bottom: 30, left: 50 },
+  margins: { top: 30, right: 30, bottom: 50, left: 30 },
   colors: ['steelblue', 'red', 'green'],
   fontSize: 14,
   titleFontSize: 18,
