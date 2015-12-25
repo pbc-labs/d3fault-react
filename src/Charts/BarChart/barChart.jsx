@@ -1,10 +1,10 @@
 import d3 from 'd3';
 import React from 'react';
-import Chart from './chart.jsx';
+import Chart from '../../chart.jsx';
 import Data from './data.jsx';
-import XAxis from './x-axis.jsx';
-import YAxis from './y-axis.jsx';
-import ChartData from './chartData.js';
+import XAxis from '../../Chart-Components/x-axis.jsx';
+import YAxis from '../../Chart-Components/y-axis.jsx';
+import ChartData from '../../Data/chartData.js';
 
 class BarChart extends React.Component {
   constructor(props) {
