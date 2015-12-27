@@ -33853,6 +33853,9 @@
 
 	exports.default = Chart;
 
+	// TODO: https://github.com/Swizec/react-testing-example
+	// http://swizec.com/reactd3js/
+
 /***/ },
 /* 210 */
 /***/ function(module, exports, __webpack_require__) {

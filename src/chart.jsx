@@ -58,3 +58,6 @@ Chart.defaultProps = {
 }
 
 export default Chart;
+
+// TODO: https://github.com/Swizec/react-testing-example
+// http://swizec.com/reactd3js/
