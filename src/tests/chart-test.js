@@ -17,3 +17,4 @@ describe('Chart component', function() {
     expect(testTree).to.equal('im funny');
   });
 });
+// http://jamesknelson.com/testing-in-es6-with-mocha-and-babel-6/
