@@ -7,14 +7,13 @@ import sd from 'skin-deep';
 import Chart from '../chart.jsx';
 import BarChart from '../Charts/BarChart/barChart.jsx';
 
-describe('Chart component', function() {
+describe('BarChart component', function() {
   // const vdom, instance;
 
-  beforeEach(function() {
-    var tree = 'im funny';
-    //
-    // instance = tree.getMountedInstance();
-    // vdom = tree.getRenderOutput();
+  beforeEach(() => {
+    this.renderer = ReactTestUtils.createRenderer();
+    this.renderer.render(<BarChart />, context);
+    this.result = this.renderer.getRenderOutput()
   });
 
   it('should do some damn thing', () => {
@@ -24,11 +23,7 @@ describe('Chart component', function() {
   });
 
   it("BarChart renders into a div", () => {
-    const renderer = ReactTestUtils.createRenderer();
-    renderer.render(<BarChart />, context);
-    const result = renderer.getRenderOutput()
-
-    expect(result.type).to.equal('div');
+    expect(this.result.type).to.equal('div');
   });
 
   it("renders with correct parent class name of 'd3fault-chart'", () => {
@@ -37,18 +32,14 @@ describe('Chart component', function() {
     expect(chart.getRenderOutput().props.className).to.equal('d3fault-chart');
     });
 
-  it("renders proper width prop (not using ShollowTestUtls)", () => {
-    const renderer = ReactTestUtils.createRenderer();
-    renderer.render(<BarChart />, context);
+  it("renders proper width prop (not using ShollowTestUtils)", () => {
 
-    expect(renderer.getRenderOutput().props.children.props.width).to.equal(600);
+    expect(this.result.props.children.props.width).to.equal(600);
 
   });
 
   it("renders proper width prop", () => {
-    const renderer = ReactTestUtils.createRenderer();
-    renderer.render(<BarChart />, context);
-    const barChart = ShallowTestUtils.getMountedInstance(renderer);
+    const barChart = ShallowTestUtils.getMountedInstance(this.renderer);
 
     expect(barChart.props.width).to.equal(600);
   });
@@ -58,3 +49,4 @@ describe('Chart component', function() {
 // http://jamesknelson.com/testing-in-es6-with-mocha-and-babel-6/
 // https://github.com/simonsmith/react-component-unit-test/blob/master/test/components/post-list.spec.js
 // https://jamesfriend.com.au/better-assertions-shallow-rendered-react-components
+//https://www.youtube.com/watch?v=bnWIBeImVKg
