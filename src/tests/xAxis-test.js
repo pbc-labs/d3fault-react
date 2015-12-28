@@ -5,7 +5,6 @@ import ReactTestUtils from 'react-addons-test-utils';
 import ShallowTestUtils from 'react-shallow-testutils';
 import sd from 'skin-deep';
 import XAxis from '../Chart-Components/xAxis.jsx';
-import BarChart from '../Charts/BarChart/barChart.jsx';
 
 const $ = React.createElement;
 
@@ -21,8 +20,6 @@ describe('xAxis component', function () {
   });
 
   it('should render a <g> element', () => {
-    console.log(this.mounted.props)
-    console.log(this.vdom)
     expect(this.vdom.type).to.equal('g');
   });
 
