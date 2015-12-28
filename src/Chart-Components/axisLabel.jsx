@@ -36,8 +36,7 @@ class AxisLabel extends React.Component {
 
 AxisLabel.propTypes = {
   offset: React.PropTypes.number.isRequired,
-  textAnchor: React.PropTypes.string.isRequired,
-  axisLabel: React.PropTypes.string.isRequired
+  textAnchor: React.PropTypes.string.isRequired
 }
 
 AxisLabel.defaultProps = {
@@ -46,5 +45,3 @@ AxisLabel.defaultProps = {
 }
 
 export default AxisLabel;
-// THINGS TO FIGURE OUT
-// label

@@ -2,8 +2,8 @@ import d3 from 'd3';
 import React from 'react';
 import Chart from '../../chart.jsx';
 import Data from './dataLeft.jsx';
-import XAxis from '../../Chart-Components/x-axis.jsx';
-import YAxis from '../../Chart-Components/y-axis.jsx';
+import XAxis from '../../Chart-Components/xAxis.jsx';
+import YAxis from '../../Chart-Components/yAxis.jsx';
 import ChartData from '../../Data/chartData.js';
 
 class BarChartLeft extends React.Component {
@@ -111,12 +111,12 @@ BarChartLeft.propTypes = {
 BarChartLeft.defaultProps = {
   width: 600,
   height: 400,
-  title: 'Default Title, YO!',
+  title: 'Default Title!',
   margins: { top: 30, right: 30, bottom: 50, left: 55 },
-  colors: ['steelblue', 'red', 'green'],
+  colors: ['red', 'steelblue', 'green'],
   fontSize: 14,
   titleFontSize: 18,
-  fontStyle: 'Arial',
+  fontStyle: 'Sans Serif',
   xAxisLabel: 'Default X',
   yAxisLabel: 'Default Y',
   chartClassName: 'bar-chart-left-class',

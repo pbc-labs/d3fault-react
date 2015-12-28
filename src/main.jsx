@@ -6,7 +6,6 @@ const Main = () => {
   return (
       <div className="container">
         <BarChart
-          title='new title, yo'
         />
       </div>
   )

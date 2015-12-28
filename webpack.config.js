@@ -7,6 +7,9 @@ module.exports = {
     filename: "bundle.js",
     publicPath: '/assets/'
   },
+
+  devTool: 'eval', // use inline-source-map or source-map for production use cases
+
   devServer: {
     inline: true,
     progress: true,
@@ -16,6 +19,7 @@ module.exports = {
     host: process.env.HOST,
     port: process.env.PORT
   },
+
   module: {
     loaders: [
       {

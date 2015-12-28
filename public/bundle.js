@@ -24182,12 +24182,12 @@
 	BarChart.defaultProps = {
 	  width: 600,
 	  height: 300,
-	  title: 'Default Title, YO!',
-	  margins: { top: 30, right: 30, bottom: 50, left: 30 },
-	  colors: ['steelblue', 'red', 'green'],
+	  title: 'Default Title',
+	  margins: { top: 30, right: 30, bottom: 50, left: 55 },
+	  colors: ['red', 'steelblue', 'green'],
 	  fontSize: 14,
 	  titleFontSize: 18,
-	  fontStyle: 'Arial',
+	  fontStyle: 'Sans Serif',
 	  xAxisLabel: 'Default X',
 	  yAxisLabel: 'Default Y',
 	  chartClassName: 'bar-chart-class',
@@ -33847,7 +33847,7 @@
 	Chart.defaultProps = {
 	  mainClassName: 'd3fault-chart',
 	  titleClassName: 'd3fault-title',
-	  svgClassName: 'd3fault-title'
+	  svgClassName: 'd3fault-svg'
 
 	};
 
@@ -34455,8 +34455,7 @@
 
 	AxisLabel.propTypes = {
 	  offset: _react2.default.PropTypes.number.isRequired,
-	  textAnchor: _react2.default.PropTypes.string.isRequired,
-	  axisLabel: _react2.default.PropTypes.string.isRequired
+	  textAnchor: _react2.default.PropTypes.string.isRequired
 	};
 
 	AxisLabel.defaultProps = {
@@ -34465,8 +34464,6 @@
 	};
 
 	exports.default = AxisLabel;
-	// THINGS TO FIGURE OUT
-	// label
 
 /***/ },
 /* 216 */
@@ -34634,9 +34631,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'container' },
-	    _react2.default.createElement(_barChart2.default, {
-	      title: 'new title, yo'
-	    })
+	    _react2.default.createElement(_barChart2.default, null)
 	  );
 	};
 
@@ -34810,12 +34805,12 @@
 	BarChartLeft.defaultProps = {
 	  width: 600,
 	  height: 400,
-	  title: 'Default Title, YO!',
+	  title: 'Default Title!',
 	  margins: { top: 30, right: 30, bottom: 50, left: 55 },
-	  colors: ['steelblue', 'red', 'green'],
+	  colors: ['red', 'steelblue', 'green'],
 	  fontSize: 14,
 	  titleFontSize: 18,
-	  fontStyle: 'Arial',
+	  fontStyle: 'Sans Serif',
 	  xAxisLabel: 'Default X',
 	  yAxisLabel: 'Default Y',
 	  chartClassName: 'bar-chart-left-class',
