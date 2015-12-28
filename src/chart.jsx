@@ -53,7 +53,7 @@ Chart.propTypes = {
 Chart.defaultProps = {
     mainClassName: 'd3fault-chart',
     titleClassName: 'd3fault-title',
-    svgClassName: 'd3fault-title'
+    svgClassName: 'd3fault-svg'
 
 }
 
