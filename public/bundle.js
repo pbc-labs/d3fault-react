@@ -24014,6 +24014,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	/* Our default path is configured to render the Main component.
+	Main component returns the BarChart component wrapped in a <div>.
+	*/
 	exports.default = _react2.default.createElement(_reactRouter.Route, { path: '/', component: _main2.default });
 
 /***/ },
@@ -24063,6 +24066,12 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	/*
+	Defines BarChart component. This uses the Chart componenet to render
+	svg element, and then within the svg renders the the x-axis, y-axis,
+	rectangles using the chart data.
+	*/
 
 	var BarChart = (function (_React$Component) {
 	  _inherits(BarChart, _React$Component);
@@ -24184,7 +24193,7 @@
 	  height: 300,
 	  title: 'Default Title',
 	  margins: { top: 30, right: 30, bottom: 50, left: 55 },
-	  colors: ['red', 'steelblue', 'green'],
+	  colors: ['#E71D36', '#26408B', '#FF9F1C', '#767B91', '#0FA3B1'],
 	  fontSize: 14,
 	  titleFontSize: 18,
 	  fontStyle: 'Sans Serif',
@@ -33780,6 +33789,12 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	/*
+	Defines the component which encompasses the svg, chart, and chart title.
+	We build up the svg and title in this componenet. We render the children
+	components that are passed into Chart within the BarChart component.
+	*/
+
 	var Chart = (function (_React$Component) {
 	  _inherits(Chart, _React$Component);
 
@@ -33793,9 +33808,13 @@
 	  _createClass(Chart, [{
 	    key: 'renderChart',
 	    value: function renderChart() {
+	      // sets the svg width to be the chart width + left/right margins
 	      var widthAdj = this.props.width + this.props.margins.left + this.props.margins.right;
+
+	      // position title in center of svg
 	      var titleXPosition = widthAdj * 0.5;
 
+	      // sets the svg height to be the chart height + top/bottom margins
 	      var heightAdj = this.props.height + this.props.margins.top + this.props.margins.bottom;
 
 	      return _react2.default.createElement(
@@ -33884,6 +33903,11 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	/*
+	Defines Data compoenent for BarChart. This uses the data to build up
+	Rect components to represent chart data.
+	*/
+
 	var Data = (function (_React$Component) {
 	  _inherits(Data, _React$Component);
 
@@ -33964,6 +33988,11 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	/*
+	Uses the props passed in to build up <rect> objects that represent
+	the data.
+	*/
 
 	var Rect = (function (_React$Component) {
 	  _inherits(Rect, _React$Component);
@@ -34627,11 +34656,14 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	/*
+	Main component returns the BarChart component wrapped in a container <div>.
+	*/
 	var Main = function Main() {
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'container' },
-	    _react2.default.createElement(_barChart2.default, null)
+	    _react2.default.createElement(_barChartLeft2.default, null)
 	  );
 	};
 
@@ -34805,7 +34837,7 @@
 	BarChartLeft.defaultProps = {
 	  width: 600,
 	  height: 400,
-	  title: 'Default Title!',
+	  title: 'Default Title',
 	  margins: { top: 30, right: 30, bottom: 50, left: 55 },
 	  colors: ['red', 'steelblue', 'green'],
 	  fontSize: 14,

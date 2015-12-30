@@ -6,6 +6,11 @@ import XAxis from '../../Chart-Components/xAxis.jsx';
 import YAxis from '../../Chart-Components/yAxis.jsx';
 import ChartData from '../../Data/chartData.js';
 
+/*
+Defines BarChart component. This uses the Chart componenet to render
+svg element, and then within the svg renders the the x-axis, y-axis,
+rectangles using the chart data.
+*/
 class BarChart extends React.Component {
   constructor(props) {
     super(props);
@@ -111,7 +116,7 @@ BarChart.defaultProps = {
   height: 300,
   title: 'Default Title',
   margins: { top: 30, right: 30, bottom: 50, left: 55 },
-  colors: ['red', 'steelblue','green'],
+  colors: ['#E71D36', '#26408B', '#FF9F1C', '#767B91', '#0FA3B1'],
   fontSize: 14,
   titleFontSize: 18,
   fontStyle: 'Sans Serif',

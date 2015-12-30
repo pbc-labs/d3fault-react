@@ -33,8 +33,6 @@ class BarChartLeft extends React.Component {
       xArray.push(item.frequencyTest);
     });
 
-    console.log(xArray, yArray)
-
     xScale.domain([0, d3.max(xArray)]);
 
     const marginTop = this.props.margins.top;
@@ -111,7 +109,7 @@ BarChartLeft.propTypes = {
 BarChartLeft.defaultProps = {
   width: 600,
   height: 400,
-  title: 'Default Title!',
+  title: 'Default Title',
   margins: { top: 30, right: 30, bottom: 50, left: 55 },
   colors: ['red', 'steelblue', 'green'],
   fontSize: 14,

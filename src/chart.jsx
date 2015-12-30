@@ -1,5 +1,10 @@
 import React from 'react';
 
+/*
+Defines the component which encompasses the svg, chart, and chart title.
+We build up the svg and title in this componenet. We render the children
+components that are passed into Chart within the BarChart component.
+*/
 class Chart extends React.Component {
   constructor(props) {
     super(props);
@@ -7,9 +12,13 @@ class Chart extends React.Component {
   }
 
   renderChart() {
+    // sets the svg width to be the chart width + left/right margins
     const widthAdj = this.props.width + this.props.margins.left + this.props.margins.right;
+
+    // position title in center of svg
     const titleXPosition = widthAdj * 0.5;
 
+    // sets the svg height to be the chart height + top/bottom margins
     const heightAdj = this.props.height + this.props.margins.top + this.props.margins.bottom;
 
     return (

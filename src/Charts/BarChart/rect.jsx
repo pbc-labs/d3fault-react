@@ -1,5 +1,10 @@
 import React from 'react';
 
+/*
+Uses the props passed in to build up <rect> objects that represent
+the data.
+*/
+
 class Rect extends React.Component {
   constructor(props) {
     super(props);

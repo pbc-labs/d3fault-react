@@ -6,6 +6,7 @@ import ShallowTestUtils from 'react-shallow-testutils';
 import sd from 'skin-deep';
 import Chart from '../chart.jsx';
 import BarChart from '../Charts/BarChart/barChart.jsx';
+import BarChartLeft from '../Charts/BarChartLeft/barChartLeft.jsx';
 
 const $ = React.createElement;
 
@@ -47,6 +48,112 @@ describe('BarChart component', function () {
   it("mounts the BarChart with height prop set to default height", () => {
     expect(this.mounted.props).to.have.property('height');
     expect(this.mounted.props.height).to.equal(300);
+  });
+
+  it("renders the BarChart with title prop set to default title", () => {
+    expect(this.vdom.props.children.props).to.have.property('title');
+    expect(this.vdom.props.children.props.title).to.equal('Default Title');
+  });
+
+  it("mounts the BarChart with title prop set to default title", () => {
+    expect(this.mounted.props).to.have.property('title');
+    expect(this.mounted.props.title).to.equal('Default Title');
+  });
+
+  it("renders the BarChart with margins prop set to default margins", () => {
+    expect(this.vdom.props.children.props).to.have.property('margins');
+    expect(this.vdom.props.children.props.margins.top).to.equal(30);    expect(this.vdom.props.children.props.margins.bottom).to.equal(50);
+    expect(this.vdom.props.children.props.margins.left).to.equal(55);
+    expect(this.vdom.props.children.props.margins.right).to.equal(30);
+  });
+
+  it("mounts the BarChart with margins prop set to default margins", () => {
+    expect(this.mounted.props).to.have.property('margins');
+    expect(this.mounted.props.margins.top).to.equal(30);
+    expect(this.mounted.props.margins.bottom).to.equal(50);
+    expect(this.mounted.props.margins.left).to.equal(55);
+    expect(this.mounted.props.margins.right).to.equal(30);
+  });
+
+  it("renders the BarChart with fontSize prop set to default fontSize", () => {
+    expect(this.vdom.props.children.props).to.have.property('fontSize');
+    expect(this.vdom.props.children.props.fontSize).to.equal(14);
+  });
+
+  it("mounts the BarChart with fontSize prop set to default fontSize", () => {
+    expect(this.mounted.props).to.have.property('fontSize');
+    expect(this.mounted.props.fontSize).to.equal(14);
+  });
+
+  it("renders the BarChart with fontStyle prop set to default fontStyle", () => {
+    expect(this.vdom.props.children.props).to.have.property('fontStyle');
+    expect(this.vdom.props.children.props.fontStyle).to.equal('Sans Serif');
+  });
+
+  it("mounts the BarChart with fontStyle prop set to default fontStyle", () => {
+    expect(this.mounted.props).to.have.property('fontStyle');
+    expect(this.mounted.props.fontStyle).to.equal('Sans Serif');
+  });
+
+  it("renders the BarChart with titleFontSize prop set to default titleFontSize", () => {
+    expect(this.vdom.props.children.props).to.have.property('titleFontSize');
+    expect(this.vdom.props.children.props.titleFontSize).to.equal(18);
+  });
+
+  it("mounts the BarChart with titleFontSize prop set to default titleFontSize", () => {
+    expect(this.mounted.props).to.have.property('titleFontSize');
+    expect(this.mounted.props.titleFontSize).to.equal(18);
+  });
+
+  it("renders the BarChart with mainClassName prop set to 'd3fault-chart'", () => {
+    expect(this.vdom.props.children.props).to.have.property('mainClassName');
+    expect(this.vdom.props.children.props.mainClassName).to.equal('d3fault-chart');
+  });
+
+  it("renders the BarChart with titleClassName prop set to 'd3fault-title'", () => {
+    expect(this.vdom.props.children.props).to.have.property('titleClassName');
+    expect(this.vdom.props.children.props.titleClassName).to.equal('d3fault-title');
+  });
+
+  it("renders the BarChart with svgClassName prop set to 'd3fault-svg'", () => {
+    expect(this.vdom.props.children.props).to.have.property('svgClassName');
+    expect(this.vdom.props.children.props.svgClassName).to.equal('d3fault-svg');
+  });
+});
+
+describe('BarChartLeft component', function () {
+
+  beforeEach(() => {
+    this.renderer = ReactTestUtils.createRenderer();
+    this.renderer.render(<BarChartLeft />, context);
+    this.result = this.renderer.getRenderOutput();
+    this.tree = sd.shallowRender($(BarChartLeft));
+    this.vdom = this.tree.getRenderOutput();
+    this.mounted = this.tree.getMountedInstance();
+  });
+
+  it("renders the BarChartLeft into a div", () => {
+    expect(this.vdom).to.have.property('type', 'div');
+  });
+
+  it("renders the BarChartLeft with width prop set to default width", () => {
+    expect(this.vdom.props.children.props).to.have.property('width');
+    expect(this.vdom.props.children.props.width).to.equal(600);
+  });
+
+  it("mounts the BarChartLeft with width prop set to default width", () => {
+    expect(this.mounted.props).to.have.property('width');
+    expect(this.mounted.props.width).to.equal(600);
+  });
+
+  it("renders the BarChartLeft with height prop set to default height", () => {
+    expect(this.vdom.props.children.props).to.have.property('height');
+    expect(this.vdom.props.children.props.height).to.equal(400);
+  });
+
+  it("mounts the BarChart with height prop set to default height", () => {
+    expect(this.mounted.props).to.have.property('height');
+    expect(this.mounted.props.height).to.equal(400);
   });
 
   it("renders the BarChart with title prop set to default title", () => {

@@ -1,6 +1,11 @@
 import React from 'react';
 import Rect from './rect.jsx';
 
+/*
+Defines Data compoenent for BarChart. This uses the data to build up
+Rect components to represent chart data.
+*/
+
 class Data extends React.Component {
   constructor(props) {
     super(props);
