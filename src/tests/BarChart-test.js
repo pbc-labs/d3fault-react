@@ -227,7 +227,7 @@ describe('BarChart component - setting customized props', function () {
     this.tree = sd.shallowRender($(BarChart, { titleFontSize: 24 }));
     this.vdom = this.tree.getRenderOutput();
     this.mounted = this.tree.getMountedInstance();
-    expect(this.mounted.props.titleFontSize).to.equal(24);
+    expect(this.mounted.props.titleFontSize).to.equal(24sca);
   });
 
 });

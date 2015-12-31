@@ -24079,11 +24079,8 @@
 	  function BarChart(props) {
 	    _classCallCheck(this, BarChart);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BarChart).call(this, props));
-
-	    _this.state = { data: _chartData2.default };
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(BarChart).call(this, props));
 	    // Operations usually carried out in componentWillMount go here
-	    return _this;
 	  }
 
 	  _createClass(BarChart, [{
@@ -24092,7 +24089,7 @@
 	      var xScale = _d2.default.scale.ordinal().rangeRoundBands([0, this.props.width], 0.1);
 	      var xArray = [];
 
-	      this.state.data.forEach(function (item) {
+	      this.props.data.forEach(function (item) {
 	        xArray.push(item.letterTest);
 	      });
 
@@ -24102,7 +24099,7 @@
 
 	      var yArray = [];
 
-	      this.state.data.forEach(function (item) {
+	      this.props.data.forEach(function (item) {
 	        yArray.push(item.frequencyTest);
 	      });
 
@@ -24152,7 +24149,7 @@
 	            _react2.default.createElement(_data2.default, {
 	              xScale: xScale,
 	              yScale: yScale,
-	              data: this.state.data,
+	              data: this.props.data,
 	              margins: this.props.margins,
 	              height: this.props.height,
 	              width: this.props.width,
@@ -24205,7 +24202,8 @@
 	  yscaleType: 'Y',
 	  innerTickSize: 6,
 	  outerTickSize: 6,
-	  tickPadding: 4
+	  tickPadding: 4,
+	  data: [{ 'letterTest': 'A', 'frequencyTest': 0.08167 }, { 'letterTest': 'B', 'frequencyTest': 0.01492 }, { 'letterTest': 'C', 'frequencyTest': 0.02782 }, { 'letterTest': 'D', 'frequencyTest': 0.04253 }, { 'letterTest': 'E', 'frequencyTest': 0.12702 }, { 'letterTest': 'F', 'frequencyTest': 0.02288 }, { 'letterTest': 'G', 'frequencyTest': 0.02015 }, { 'letterTest': 'H', 'frequencyTest': 0.06094 }, { 'letterTest': 'I', 'frequencyTest': 0.06966 }, { 'letterTest': 'J', 'frequencyTest': 0.00153 }, { 'letterTest': 'K', 'frequencyTest': 0.00772 }, { 'letterTest': 'L', 'frequencyTest': 0.04025 }, { 'letterTest': 'M', 'frequencyTest': 0.02406 }, { 'letterTest': 'N', 'frequencyTest': 0.06749 }, { 'letterTest': 'O', 'frequencyTest': 0.07507 }, { 'letterTest': 'P', 'frequencyTest': 0.01929 }, { 'letterTest': 'Q', 'frequencyTest': 0.00095 }, { 'letterTest': 'R', 'frequencyTest': 0.05987 }, { 'letterTest': 'S', 'frequencyTest': 0.06327 }, { 'letterTest': 'T', 'frequencyTest': 0.09056 }, { 'letterTest': 'U', 'frequencyTest': 0.02758 }, { 'letterTest': 'V', 'frequencyTest': 0.00978 }, { 'letterTest': 'W', 'frequencyTest': 0.0236 }, { 'letterTest': 'X', 'frequencyTest': 0.0015 }, { 'letterTest': 'Y', 'frequencyTest': 0.01974 }, { 'letterTest': 'Z', 'frequencyTest': 0.00074 }]
 	};
 
 	exports.default = BarChart;
@@ -33812,7 +33810,7 @@
 	      var widthAdj = this.props.width + this.props.margins.left + this.props.margins.right;
 
 	      // position title in center of svg
-	      var titleXPosition = widthAdj * 0.5;
+	      var titleXPosition = this.props.width * 0.5 - this.props.margins.right;
 
 	      // sets the svg height to be the chart height + top/bottom margins
 	      var heightAdj = this.props.height + this.props.margins.top + this.props.margins.bottom;
@@ -34457,7 +34455,7 @@
 	        var x = this.props.width * 0.5 + this.props.offset;
 	        var y = this.props.offset * 2;
 	      } else {
-	        var x = -this.props.height * 0.5 + this.props.offset * 0.5;
+	        var x = -this.props.height * 0.5 + this.props.offset * 1.5;
 	        if (this.props.orient === 'left') {
 	          var y = -this.props.offset;
 	        } else {
@@ -34654,6 +34652,10 @@
 
 	var _barChartLeft2 = _interopRequireDefault(_barChartLeft);
 
+	var _chartDataCopy = __webpack_require__(221);
+
+	var _chartDataCopy2 = _interopRequireDefault(_chartDataCopy);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	/*
@@ -34663,7 +34665,11 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'container' },
-	    _react2.default.createElement(_barChartLeft2.default, null)
+	    _react2.default.createElement(_barChart2.default, {
+	      title: 'Letter Frequency',
+	      xAxisLabel: 'Letters',
+	      yAxisLabel: 'Frequency'
+	    })
 	  );
 	};
 
@@ -34723,11 +34729,8 @@
 	  function BarChartLeft(props) {
 	    _classCallCheck(this, BarChartLeft);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BarChartLeft).call(this, props));
-
-	    _this.state = { data: _chartData2.default };
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(BarChartLeft).call(this, props));
 	    // Operations usually carried out in componentWillMount go here
-	    return _this;
 	  }
 
 	  _createClass(BarChartLeft, [{
@@ -34736,7 +34739,7 @@
 	      var yScale = _d2.default.scale.ordinal().rangeRoundBands([0, this.props.height], 0.1);
 	      var yArray = [];
 
-	      this.state.data.forEach(function (item) {
+	      this.props.data.forEach(function (item) {
 	        yArray.push(item.letterTest);
 	      });
 
@@ -34746,11 +34749,9 @@
 
 	      var xArray = [];
 
-	      this.state.data.forEach(function (item) {
+	      this.props.data.forEach(function (item) {
 	        xArray.push(item.frequencyTest);
 	      });
-
-	      console.log(xArray, yArray);
 
 	      xScale.domain([0, _d2.default.max(xArray)]);
 
@@ -34798,7 +34799,7 @@
 	            _react2.default.createElement(_dataLeft2.default, {
 	              xScale: xScale,
 	              yScale: yScale,
-	              data: this.state.data,
+	              data: this.props.data,
 	              margins: this.props.margins,
 	              height: this.props.height,
 	              width: this.props.width,
@@ -34851,7 +34852,9 @@
 	  yscaleType: 'Y',
 	  innerTickSize: 6,
 	  outerTickSize: 6,
-	  tickPadding: 4
+	  tickPadding: 4,
+	  data: [{ 'letterTest': 'A', 'frequencyTest': 0.08167 }, { 'letterTest': 'B', 'frequencyTest': 0.01492 }, { 'letterTest': 'C', 'frequencyTest': 0.02782 }, { 'letterTest': 'D', 'frequencyTest': 0.04253 }, { 'letterTest': 'E', 'frequencyTest': 0.12702 }, { 'letterTest': 'F', 'frequencyTest': 0.02288 }, { 'letterTest': 'G', 'frequencyTest': 0.02015 }, { 'letterTest': 'H', 'frequencyTest': 0.06094 }, { 'letterTest': 'I', 'frequencyTest': 0.06966 }, { 'letterTest': 'J', 'frequencyTest': 0.00153 }, { 'letterTest': 'K', 'frequencyTest': 0.00772 }, { 'letterTest': 'L', 'frequencyTest': 0.04025 }, { 'letterTest': 'M', 'frequencyTest': 0.02406 }, { 'letterTest': 'N', 'frequencyTest': 0.06749 }, { 'letterTest': 'O', 'frequencyTest': 0.07507 }, { 'letterTest': 'P', 'frequencyTest': 0.01929 }, { 'letterTest': 'Q', 'frequencyTest': 0.00095 }, { 'letterTest': 'R', 'frequencyTest': 0.05987 }, { 'letterTest': 'S', 'frequencyTest': 0.06327 }, { 'letterTest': 'T', 'frequencyTest': 0.09056 }, { 'letterTest': 'U', 'frequencyTest': 0.02758 }, { 'letterTest': 'V', 'frequencyTest': 0.00978 }, { 'letterTest': 'W', 'frequencyTest': 0.0236 }, { 'letterTest': 'X', 'frequencyTest': 0.0015 }, { 'letterTest': 'Y', 'frequencyTest': 0.01974 }, { 'letterTest': 'Z', 'frequencyTest': 0.00074 }]
+
 	};
 
 	exports.default = BarChartLeft;
@@ -34940,6 +34943,19 @@
 	;
 
 	exports.default = DataLeft;
+
+/***/ },
+/* 221 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var ChartData = [{ 'letterTest': 'A', 'frequencyTest': 0.08167 }, { 'letterTest': 'B', 'frequencyTest': 0.01492 }, { 'letterTest': 'C', 'frequencyTest': 0.02782 }, { 'letterTest': 'D', 'frequencyTest': 0.04253 }, { 'letterTest': 'E', 'frequencyTest': 0.04702 }, { 'letterTest': 'F', 'frequencyTest': 0.02288 }, { 'letterTest': 'G', 'frequencyTest': 0.02015 }, { 'letterTest': 'H', 'frequencyTest': 0.06094 }, { 'letterTest': 'I', 'frequencyTest': 0.06966 }, { 'letterTest': 'J', 'frequencyTest': 0.00153 }, { 'letterTest': 'K', 'frequencyTest': 0.00772 }, { 'letterTest': 'L', 'frequencyTest': 0.04025 }, { 'letterTest': 'M', 'frequencyTest': 0.02406 }, { 'letterTest': 'N', 'frequencyTest': 0.06749 }, { 'letterTest': 'O', 'frequencyTest': 0.07507 }, { 'letterTest': 'P', 'frequencyTest': 0.01929 }, { 'letterTest': 'Q', 'frequencyTest': 0.00095 }, { 'letterTest': 'R', 'frequencyTest': 0.05987 }, { 'letterTest': 'S', 'frequencyTest': 0.06327 }, { 'letterTest': 'T', 'frequencyTest': 0.09056 }, { 'letterTest': 'U', 'frequencyTest': 0.02758 }, { 'letterTest': 'V', 'frequencyTest': 0.00978 }, { 'letterTest': 'W', 'frequencyTest': 0.0236 }, { 'letterTest': 'X', 'frequencyTest': 0.0015 }, { 'letterTest': 'Y', 'frequencyTest': 0.01974 }, { 'letterTest': 'Z', 'frequencyTest': 0.00074 }];
+
+	exports.default = ChartData;
 
 /***/ }
 /******/ ]);

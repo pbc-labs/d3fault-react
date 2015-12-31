@@ -16,7 +16,7 @@ class Chart extends React.Component {
     const widthAdj = this.props.width + this.props.margins.left + this.props.margins.right;
 
     // position title in center of svg
-    const titleXPosition = widthAdj * 0.5;
+    const titleXPosition = this.props.width * 0.5 - this.props.margins.right;
 
     // sets the svg height to be the chart height + top/bottom margins
     const heightAdj = this.props.height + this.props.margins.top + this.props.margins.bottom;
